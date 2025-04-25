@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:myapp/pages/login/loginPage.dart';
+import 'package:myapp/pages/product/listProduct.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -14,10 +15,10 @@ class _SplashScreenState extends State<SplashScreen> {
     // TODO: implement initState
     super.initState();
     // Attendre 3 secondes
-    Timer(Duration(seconds: 3), () {
+    Timer(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => Loginpage()),
+        MaterialPageRoute(builder: (context) => Listproduct()),
       );
     });
   }
@@ -28,7 +29,18 @@ class _SplashScreenState extends State<SplashScreen> {
       // backgroundColor: const Color.fromARGB(255, 1, 17, 32),
       backgroundColor: Colors.red,
       body: Center(
-        child: Image.asset('assets/image.png'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('assets/image.png'),
+            CircularProgressIndicator(
+              color: Colors.white24,
+            ),
+            SizedBox(
+              height: 20,
+            ),
+          ],
+        )
       ),
     );
   }
